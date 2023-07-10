@@ -1,2 +1,2 @@
-# WJC-Electronics-Tool
-(A live version can be found at electronics-revision-tool.com)V
+# (A live version can be found at electronics-revision-tool.com)
+I have consolidated all the WJC electronics exam questions into one searchable database. This database can be filtered by topic or selected at random. Given my preference for making notes and primarily answering exam questions on paper—with the question occupying my entire screen—it was vital to create a tool that could adjust to fit the entire viewport horizontally. This enjoyable project paved the way for further exploration into automation and web development.
