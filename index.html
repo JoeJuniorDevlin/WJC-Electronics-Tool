@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Electronics Exam Tool</title>
+        <style>
+            body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            }
+            header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px;
+            color: white;
+            }
+            .left,
+            .right {
+            display: flex;
+            align-items: center;
+            }
+            label {
+            margin-right: 10px;
+            }
+            select,
+            button {
+            margin-right: 10px;
+            }
+            #searchable-select {
+            width: 250px;
+            margin-right: 20px;
+            }
+
+            @media screen and (max-width: 767px) {
+            #searchable-select {
+            width: 65%;
+                }
+            }
+            button {
+            background-color: #333;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            }
+            button.contact {
+            background-color: #333;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            }
+            button:hover {
+                background-color: #777;
+            }
+            header>.right>button:last-child {
+            margin-right: 0;
+            }
+            .section-images {
+            margin: auto 2em;
+            text-align: center;
+            }
+            img {
+            display: block;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 90%;
+            margin: 20px auto;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <div class="left">
+                <select id="searchable-select">
+                    <option value="random">Random</option>
+                    <option value="topic_1">555 astable</option>
+                    <option value="topic_2">555 monostable</option>
+                    <option value="topic_3">555 timer equations</option>
+                    <option value="topic_4">7-segment display</option>
+                    <option value="topic_5">active filters</option>
+                    <option value="topic_6">adc circuits</option>
+                    <option value="topic_7">adc resolution</option>
+                    <option value="topic_8">am/fm waveforms</option>
+                    <option value="topic_9">amplifier systems</option>
+                    <option value="topic_10">analysing adc's</option>
+                    <option value="topic_11">analysing microcontroller circuits</option>
+                    <option value="topic_12">astable</option>
+                    <option value="topic_13">astable equations</option>
+                    <option value="topic_14">audio system graphs</option>
+                    <option value="topic_15">audio systems</option>
+                    <option value="topic_16">bandwidth</option>
+                    <option value="topic_17">binary and bcd counters</option>
+                    <option value="topic_18">boolean algebra</option>
+                    <option value="topic_19">boolean identities</option>
+                    <option value="topic_20">bridge circuits</option>
+                    <option value="topic_21">capacitance</option>
+                    <option value="topic_22">capacitor charge/discharge</option>
+                    <option value="topic_23">capacitors in series and parallel</option>
+                    <option value="topic_24">charging/discharging capacitor equations</option>
+                    <option value="topic_25">circuit equations</option>
+                    <option value="topic_26">circuit symbols</option>
+                    <option value="topic_27">clipping and slew rate distortion</option>
+                    <option value="topic_28">combinational logic</option>
+                    <option value="topic_29">combinations of resistors</option>
+                    <option value="topic_30">comparator circuits</option>
+                    <option value="topic_31">comparators</option>
+                    <option value="topic_32">comparing interfaces</option>
+                    <option value="topic_33">complex systems</option>
+                    <option value="topic_34">counters</option>
+                    <option value="topic_35">counting systems</option>
+                    <option value="topic_36">crossover distortion</option>
+                    <option value="topic_37">current limiting resistor calculations</option>
+                    <option value="topic_38">current rules</option>
+                    <option value="topic_39">d-type counters</option>
+                    <option value="topic_40">d-type data transfer</option>
+                    <option value="topic_41">d-type flip-flop</option>
+                    <option value="topic_42">d-type flip-flops</option>
+                    <option value="topic_43">d-type latches</option>
+                    <option value="topic_44">dac circuits</option>
+                    <option value="topic_45">decade counters</option>
+                    <option value="topic_46">demorgan's theorem</option>
+                    <option value="topic_47">design logic systems</option>
+                    <option value="topic_48">design systems</option>
+                    <option value="topic_49">difference amplifiers</option>
+                    <option value="topic_50">digitising signals</option>
+                    <option value="topic_51">distortion</option>
+                    <option value="topic_52">draw and analyses 555 ic circuit diagrams</option>
+                    <option value="topic_53">draw and analyses systems using counters and logic gates</option>
+                    <option value="topic_54">e24 series</option>
+                    <option value="topic_55">encoded discs</option>
+                    <option value="topic_56">flowcharts</option>
+                    <option value="topic_57">ic pin connections</option>
+                    <option value="topic_58">input</option>
+                    <option value="topic_59">input subsystems</option>
+                    <option value="topic_60">interface circuits</option>
+                    <option value="topic_61">inverting amp</option>
+                    <option value="topic_62">karnaugh maps</option>
+                    <option value="topic_63">kirchoff's laws</option>
+                    <option value="topic_64">latches</option>
+                    <option value="topic_65">ldr</option>
+                    <option value="topic_66">led</option>
+                    <option value="topic_67">led's</option>
+                    <option value="topic_68">loading power supplies</option>
+                    <option value="topic_69">logic gates</option>
+                    <option value="topic_70">logic system design</option>
+                    <option value="topic_71">mains power supplies</option>
+                    <option value="topic_72">mains power supply</option>
+                    <option value="topic_73">max power transfer</option>
+                    <option value="topic_74">microcontroller circuits</option>
+                    <option value="topic_75">mixer circuits</option>
+                    <option value="topic_76">modulation techniques</option>
+                    <option value="topic_77">monostable</option>
+                    <option value="topic_78">monostable/astable graphs</option>
+                    <option value="topic_79">mosfet</option>
+                    <option value="topic_80">mosfet circuits</option>
+                    <option value="topic_81">mosfet equations</option>
+                    <option value="topic_82">multi-stage amplifiers</option>
+                    <option value="topic_83">multiplexers</option>
+                    <option value="topic_84">nand gate</option>
+                    <option value="topic_85">nand gate simplification</option>
+                    <option value="topic_86">nand gates</option>
+                    <option value="topic_87">non-inverting amp</option>
+                    <option value="topic_88">npn transistor</option>
+                    <option value="topic_89">npn transistor circuits</option>
+                    <option value="topic_90">number systems</option>
+                    <option value="topic_91">op amp equations</option>
+                    <option value="topic_92">op amp frequency response</option>
+                    <option value="topic_93">op amp graphs</option>
+                    <option value="topic_94">op amp voltage amplifier circuits</option>
+                    <option value="topic_95">op amp voltage amplifiers</option>
+                    <option value="topic_96">op amp voltage gain equations</option>
+                    <option value="topic_97">op amps</option>
+                    <option value="topic_98">op-amps</option>
+                    <option value="topic_99">oscilloscope readings</option>
+                    <option value="topic_100">output</option>
+                    <option value="topic_101">outputs</option>
+                    <option value="topic_102">parallel resistors</option>
+                    <option value="topic_103">passive filter circuits</option>
+                    <option value="topic_104">passive filter equations</option>
+                    <option value="topic_105">passive filter graphs</option>
+                    <option value="topic_106">pcm systems</option>
+                    <option value="topic_107">phase angle</option>
+                    <option value="topic_108">photosensitive devices</option>
+                    <option value="topic_109">pic microcontroller</option>
+                    <option value="topic_110">piso and sipo</option>
+                    <option value="topic_111">power</option>
+                    <option value="topic_112">power amplifiers</option>
+                    <option value="topic_113">power relationships</option>
+                    <option value="topic_114">power supply regulation</option>
+                    <option value="topic_115">processing subsystems</option>
+                    <option value="topic_116">pull-down resistors</option>
+                    <option value="topic_117">pull-up</option>
+                    <option value="topic_118">pulse generator</option>
+                    <option value="topic_119">push-pull amplifiers</option>
+                    <option value="topic_120">r.m.s</option>
+                    <option value="topic_121">r.m.s.</option>
+                    <option value="topic_122">radio spectrum</option>
+                    <option value="topic_123">rc networks</option>
+                    <option value="topic_124">reactance/impedance</option>
+                    <option value="topic_125">rectification</option>
+                    <option value="topic_126">resistor codes e24</option>
+                    <option value="topic_127">ripple voltage</option>
+                    <option value="topic_128">sampling frequency</option>
+                    <option value="topic_129">schmitt inverter</option>
+                    <option value="topic_130">schmitt invertor</option>
+                    <option value="topic_131">schmitt trigger</option>
+                    <option value="topic_132">schmitt trigger oscillation</option>
+                    <option value="topic_133">semiconductor equation</option>
+                    <option value="topic_134">sensing circuits</option>
+                    <option value="topic_135">sequence generators</option>
+                    <option value="topic_136">series resistors</option>
+                    <option value="topic_137">set-reset latch</option>
+                    <option value="topic_138">signal regeneration</option>
+                    <option value="topic_139">silicon diodes</option>
+                    <option value="topic_140">simplification</option>
+                    <option value="topic_141">summing amp</option>
+                    <option value="topic_142">switch</option>
+                    <option value="topic_143">switches</option>
+                    <option value="topic_144">system design</option>
+                    <option value="topic_145">thermistors</option>
+                    <option value="topic_146">thevenin's theorem</option>
+                    <option value="topic_147">theverin's theorem</option>
+                    <option value="topic_148">thyristor</option>
+                    <option value="topic_149">thyristor circuits</option>
+                    <option value="topic_150">thyristor circuits and graphs</option>
+                    <option value="topic_151">thyristor graphs</option>
+                    <option value="topic_152">thyristors</option>
+                    <option value="topic_153">thyristors characteristics</option>
+                    <option value="topic_154">timing diagram</option>
+                    <option value="topic_155">transconductance</option>
+                    <option value="topic_156">transducer drivers</option>
+                    <option value="topic_157">transistor equation</option>
+                    <option value="topic_158">transistor equations</option>
+                    <option value="topic_159">transistor interfaces</option>
+                    <option value="topic_160">transition gates</option>
+                    <option value="topic_161">truth tables</option>
+                    <option value="topic_162">use data to design switching circuits</option>
+                    <option value="topic_163">v=ir</option>
+                    <option value="topic_164">voltage divider</option>
+                    <option value="topic_165">voltage dividers</option>
+                    <option value="topic_166">voltage gain</option>
+                    <option value="topic_167">voltage regulator circuits</option>
+                    <option value="topic_168">voltage rules</option>
+                    <option value="topic_169">wireless equations</option>
+                    <option value="topic_170">zener diode</option>
+                    <option value="topic_171">zener diode power supplies</option>
+                    <option value="topic_172">zener diodes</option>
+                </select>
+            </div>
+            <div class="right">
+                <a href="mailto:joedevlin_ms@hotmail.com" class="contact-link">
+                <button class="contact" id="show-contact">Contact</button>
+                </a>
+                <button id="show-image">Select Random Question</button>
+                <button id="show-answer">Show Answer</button>
+            </div>
+        </header>
+        <section class="section-images">
+            <div id="responsive-image"></div>
+        </section>
+        <script>
+            $(document).ready(function() {
+                $('#searchable-select').select2();
+            });
+            const button = document.getElementById("show-image");
+            const answerButton = document.getElementById("show-answer");
+            const topics = document.getElementById("searchable-select");
+            const imageContainer = document.getElementById("responsive-image");
+            let showAnswer = true;
+            let currentImage;
+            const imageFiles = ["555_astable_555_monostable_amplifier_systems_input_output_processing_subsystems$.png", "555_astable_555_monostable_amplifier_systems_input_output_processing_subsystems.png", "555_astable_astable_equations_monostable_astable_graphs$.png", "555_astable_astable_equations_monostable_astable_graphs.png", "555_astable_draw_and_analyses_555_ic_circuit_diagrams_monostable_astable_graphs$.png", "555_astable_draw_and_analyses_555_ic_circuit_diagrams_monostable_astable_graphs.png", "555_timer_equations_astable$.png", "555_timer_equations_astable.png", "555_timer_equations_astableccc$.png", "555_timer_equations_astableccc.png", "555_timer_equations_astable_combinational_logic_complex_systems_counters_d-type_counters_design_systems_logic_gates_rc_networks_truth_tables$.png", "555_timer_equations_astable_combinational_logic_complex_systems_counters_d-type_counters_design_systems_logic_gates_rc_networks_truth_tables.png", "555_timer_equations_astable_e24_series_led_sensing_circuits_v=ir$.png", "555_timer_equations_astable_e24_series_led_sensing_circuits_v=ir.png", "555_timer_equations_charging_discharging_capacitor_equations_current_limiting_resistor_calculations_e24_series_monostable_rc_networks_v=ir$.png", "555_timer_equations_charging_discharging_capacitor_equations_current_limiting_resistor_calculations_e24_series_monostable_rc_networks_v=ir.png", "555_timer_equations_complex_systems_monostable_outputs$.png", "555_timer_equations_complex_systems_monostable_outputs.png", "7-segment_display$.png", "7-segment_display.png", "active_filters$.png", "active_filters.png", "active_filters_audio_system_graphs$.png", "active_filters_audio_system_graphs.png", "active_filters_audio_system_graphs_audio_systems_crossover_distortion_power_amplifiers_push-pull_amplifiers$.png", "active_filters_audio_system_graphs_audio_systems_crossover_distortion_power_amplifiers_push-pull_amplifiers.png", "active_filters_audio_system_graphs_crossover_distortion_power_amplifiers_push-pull_amplifiers$.png", "active_filters_audio_system_graphs_crossover_distortion_power_amplifiers_push-pull_amplifiers.png", "active_filters_audio_system_graphs_passive_filter_graphs$.png", "active_filters_audio_system_graphs_passive_filter_graphs.png", "adc_circuits_adc_resolution_analysing_adc's$.png", "adc_circuits_adc_resolution_analysing_adc's.png", "adc_circuits_adc_resolution_analysing_adc's_digitising_signals$.png", "adc_circuits_adc_resolution_analysing_adc's_digitising_signals.png", "adc_circuits_analysing_adc's_combinational_logic_logic_gates_mains_power_supplies_power_supply_regulation_voltage_regulator_circuits_zener_diode_power_supplies$.png", "adc_circuits_analysing_adc's_combinational_logic_logic_gates_mains_power_supplies_power_supply_regulation_voltage_regulator_circuits_zener_diode_power_supplies.png", "adc_resolution_digitising_signals_modulation_techniques_pcm_systems_sampling_frequency$.png", "adc_resolution_digitising_signals_modulation_techniques_pcm_systems_sampling_frequency.png", "adc_resolution_digitising_signals_pcm_systems$.png", "adc_resolution_digitising_signals_pcm_systems.png", "adc_resolution_digitising_signals_pcm_systems_piso_and_sipo_sampling_frequency$.png", "adc_resolution_digitising_signals_pcm_systems_piso_and_sipo_sampling_frequency.png", "adc_resolution_modulation_techniques$.png", "adc_resolution_modulation_techniques.png", "amplifier_systems_astable_equations_circuit_symbols$.png", "amplifier_systems_astable_equations_circuit_symbols.png", "amplifier_systems_circuit_symbols_op_amp_graphs_op_amp_voltage_amplifier_circuits_op_amp_voltage_amplifiers_op_amp_voltage_gain_equations$.png", "amplifier_systems_circuit_symbols_op_amp_graphs_op_amp_voltage_amplifier_circuits_op_amp_voltage_amplifiers_op_amp_voltage_gain_equations.png", "amplifier_systems_op_amp_frequency_response_op_amp_voltage_amplifiers$.png", "amplifier_systems_op_amp_frequency_response_op_amp_voltage_amplifiers.png", "am_fm_waveforms_radio_spectrum_wireless_equations$.png", "am_fm_waveforms_radio_spectrum_wireless_equations.png", "am_fm_waveforms_radio_spectrum_wireless_equations2$.png", "am_fm_waveforms_radio_spectrum_wireless_equations2.png", "am_fm_waveforms_radio_spectrum_wireless_equationsddd$.png", "am_fm_waveforms_radio_spectrum_wireless_equationsddd.png", "am_fm_waveforms_wireless_equations$.png", "am_fm_waveforms_wireless_equations.png", "analysing_microcontroller_circuits_microcontroller_circuits$.png", "analysing_microcontroller_circuits_microcontroller_circuits.png", "astable_schmitt_inverter$.png", "astable_schmitt_inverter.png", "audio_system_graphs_audio_systems_max_power_transfer_power_amplifiers_push-pull_amplifiers$.png", "audio_system_graphs_audio_systems_max_power_transfer_power_amplifiers_push-pull_amplifiers.png", "audio_system_graphs_audio_systems_multi-stage_amplifiers$.png", "audio_system_graphs_audio_systems_multi-stage_amplifiers.png", "audio_system_graphs_audio_systems_power_amplifiers_push-pull_amplifiers$.png", "audio_system_graphs_audio_systems_power_amplifiers_push-pull_amplifiers.png", "bandwidth_clipping_and_slew_rate_distortion_inverting_amp_op-amps_voltage_gain$.png", "bandwidth_clipping_and_slew_rate_distortion_inverting_amp_op-amps_voltage_gain.png", "bandwidth_clipping_and_slew_rate_distortion_inverting_amp_op_amp_equations_op_amps_voltage_gain$.png", "bandwidth_clipping_and_slew_rate_distortion_inverting_amp_op_amp_equations_op_amps_voltage_gain.png", "bandwidth_clipping_and_slew_rate_distortion_inverting_amp_voltage_gain$.png", "bandwidth_clipping_and_slew_rate_distortion_inverting_amp_voltage_gain.png", "bandwidth_clipping_and_slew_rate_distortion_op_amps$.png", "bandwidth_clipping_and_slew_rate_distortion_op_amps.png", "bandwidth_inverting_amp_op-amps_voltage_gain$.png", "bandwidth_inverting_amp_op-amps_voltage_gain.png", "bandwidth_non-inverting_amp_op-amps_voltage_gain$.png", "bandwidth_non-inverting_amp_op-amps_voltage_gain.png", "binary_and_bcd_counters_d-type_latches$.png", "binary_and_bcd_counters_d-type_latches.png", "binary_and_bcd_counters_decade_counters$.png", "binary_and_bcd_counters_decade_counters.png", "boolean_algebra_boolean_identities_demorgan's_theorem$.png", "boolean_algebra_boolean_identities_demorgan's_theorem.png", "boolean_algebra_boolean_identities_demorgan's_theorem_karnaugh_maps$.png", "boolean_algebra_boolean_identities_demorgan's_theorem_karnaugh_maps.png", "boolean_algebra_boolean_identities_demorgan's_theorem_karnaugh_mapsccc$.png", "boolean_algebra_boolean_identities_demorgan's_theorem_karnaugh_mapsccc.png", "boolean_algebra_boolean_identities_sequence_generators$.png", "boolean_algebra_boolean_identities_sequence_generators.png", "boolean_algebra_combinational_logic_demorgan's_theorem_logic_gates$.png", "boolean_algebra_combinational_logic_demorgan's_theorem_logic_gates.png", "boolean_algebra_combinational_logic_karnaugh_maps_nand_gate_simplification_truth_tables$.png", "boolean_algebra_combinational_logic_karnaugh_maps_nand_gate_simplification_truth_tables.png", "boolean_algebra_combinational_logic_nand_gate_simplification_pic_microcontroller_truth_tables$.png", "boolean_algebra_combinational_logic_nand_gate_simplification_pic_microcontroller_truth_tables.png", "boolean_algebra_demorgan's_theorem_karnaugh_maps$.png", "boolean_algebra_demorgan's_theorem_karnaugh_maps.png", "boolean_algebra_encoded_discs_karnaugh_maps$.png", "boolean_algebra_encoded_discs_karnaugh_maps.png", "boolean_algebra_led's_multiplexers_truth_tables$.png", "boolean_algebra_led's_multiplexers_truth_tables.png", "boolean_algebra_logic_gates_multiplexers_truth_tables$.png", "boolean_algebra_logic_gates_multiplexers_truth_tables.png", "boolean_algebra_logic_gates_nand_gate_simplification_truth_tables$.png", "boolean_algebra_logic_gates_nand_gate_simplification_truth_tables.png", "boolean_algebra_logic_gates_sequence_generators$.png", "boolean_algebra_logic_gates_sequence_generators.png", "boolean_algebra_logic_gates_sequence_generators_truth_tables$.png", "boolean_algebra_logic_gates_sequence_generators_truth_tables.png", "boolean_algebra_logic_gates_sequence_generators_truth_tables2$.png", "boolean_algebra_logic_gates_sequence_generators_truth_tables2.png", "boolean_algebra_multiplexers_truth_tables$.png", "boolean_algebra_multiplexers_truth_tables.png", "boolean_algebra_sequence_generators$.png", "boolean_algebra_sequence_generators.png", "boolean_algebra_truth_tables$.png", "boolean_algebra_truth_tables.png", "boolean_identities_demorgan's_theorem_karnaugh_maps$.png", "boolean_identities_demorgan's_theorem_karnaugh_maps.png", "boolean_identities_sequence_generators$.png", "boolean_identities_sequence_generators.png", "bridge_circuits_difference_amplifiers$.png", "bridge_circuits_difference_amplifiers.png", "bridge_circuits_difference_amplifiersddd$.png", "bridge_circuits_difference_amplifiersddd.png", "bridge_circuits_difference_amplifiers_op_amps$.png", "bridge_circuits_difference_amplifiers_op_amps.png", "bridge_circuits_difference_amplifiers_photosensitive_devices_voltage_divider$.png", "bridge_circuits_difference_amplifiers_photosensitive_devices_voltage_divider.png", "bridge_circuits_difference_amplifiers_sensing_circuits_thermistors_voltage_divider$.png", "bridge_circuits_difference_amplifiers_sensing_circuits_thermistors_voltage_divider.png", "capacitance_charging_discharging_capacitor_equations_rc_networks$.png", "capacitance_charging_discharging_capacitor_equations_rc_networks.png", "capacitors_in_series_and_parallel_combinations_of_resistors_kirchoff's_laws$.png", "capacitors_in_series_and_parallel_combinations_of_resistors_kirchoff's_laws.png", "capacitors_in_series_and_parallel_zener_diodes$.png", "capacitors_in_series_and_parallel_zener_diodes.png", "capacitor_charge_discharge_circuit_symbols_monostable_astable_graphs_rc_networks$.png", "capacitor_charge_discharge_circuit_symbols_monostable_astable_graphs_rc_networks.png", "charging_discharging_capacitor_equations_logic_gates_monostable_rc_networks$.png", "charging_discharging_capacitor_equations_logic_gates_monostable_rc_networks.png", "circuit_equations$.png", "circuit_equations.png", "circuit_equations_circuit_symbols_comparing_interfaces_interface_circuits_sensing_circuits_thyristor_transistor_equations$.png", "circuit_equations_circuit_symbols_comparing_interfaces_interface_circuits_sensing_circuits_thyristor_transistor_equations.png", "circuit_equations_circuit_symbols_comparing_interfaces_transistor_equations$.png", "circuit_equations_circuit_symbols_comparing_interfaces_transistor_equations.png", "circuit_equations_circuit_symbols_resistor_codes_e24_voltage_dividers_voltage_rules$.png", "circuit_equations_circuit_symbols_resistor_codes_e24_voltage_dividers_voltage_rules.png", "circuit_equations_current_rules_led's_resistor_codes_e24$.png", "circuit_equations_current_rules_led's_resistor_codes_e24.png", "circuit_equations_led's_parallel_resistors$.png", "circuit_equations_led's_parallel_resistors.png", "circuit_symbols_comparators_input_subsystems_sensing_circuits_switches_voltage_dividers$.png", "circuit_symbols_comparators_input_subsystems_sensing_circuits_switches_voltage_dividers.png", "circuit_symbols_comparators_interface_circuits_sensing_circuits_use_data_to_design_switching_circuits_voltage_dividers$.png", "circuit_symbols_comparators_interface_circuits_sensing_circuits_use_data_to_design_switching_circuits_voltage_dividers.png", "circuit_symbols_counting_systems_d-type_counters_rc_networks$.png", "circuit_symbols_counting_systems_d-type_counters_rc_networks.png", "circuit_symbols_input_output_processing_subsystems$.png", "circuit_symbols_input_output_processing_subsystems.png", "circuit_symbols_input_output_processing_subsystemsddd$.png", "circuit_symbols_input_output_processing_subsystemsddd.png", "circuit_symbols_input_subsystems_nand_gates_schmitt_invertor$.png", "circuit_symbols_input_subsystems_nand_gates_schmitt_invertor.png", "circuit_symbols_interface_circuits$.png", "circuit_symbols_interface_circuits.png", "circuit_symbols_ldr_sensing_circuits_thyristor_voltage_rules$.png", "circuit_symbols_ldr_sensing_circuits_thyristor_voltage_rules.png", "circuit_symbols_op_amp_graphs_op_amp_voltage_amplifiers$.png", "circuit_symbols_op_amp_graphs_op_amp_voltage_amplifiers.png", "circuit_symbols_op_amp_graphs_op_amp_voltage_amplifier_circuits_op_amp_voltage_amplifiers_op_amp_voltage_gain_equations$.png", "circuit_symbols_op_amp_graphs_op_amp_voltage_amplifier_circuits_op_amp_voltage_amplifiers_op_amp_voltage_gain_equations.png", "circuit_symbols_op_amp_graphs_op_amp_voltage_amplifier_circuits_op_amp_voltage_amplifiers_op_amp_voltage_gain_equationsddd.png", "circuit_symbols_sensing_circuits_thyristor_voltage_rules$.png", "circuit_symbols_sensing_circuits_thyristor_voltage_rules.png", "clipping_and_slew_rate_distortion_inverting_amp_non-inverting_amp_op_amp_equations_voltage_gain$.png", "clipping_and_slew_rate_distortion_inverting_amp_non-inverting_amp_op_amp_equations_voltage_gain.png", "clipping_and_slew_rate_distortion_non-inverting_amp_op-amps_voltage_gain$.png", "clipping_and_slew_rate_distortion_non-inverting_amp_op-amps_voltage_gain.png", "clipping_and_slew_rate_distortion_non-inverting_amp_op_amp_equations_op_amps_voltage_gain$.png", "clipping_and_slew_rate_distortion_non-inverting_amp_op_amp_equations_op_amps_voltage_gain.png", "combinational_logic_counters_d-type_flip-flops_logic_gates_truth_tables$.png", "combinational_logic_counters_d-type_flip-flops_logic_gates_truth_tables.png", "combinational_logic_logic_gates_multiplexers_truth_tables$.png", "combinational_logic_logic_gates_multiplexers_truth_tables.png", "combinational_logic_logic_gates_nand_gate_simplification_truth_tables$.png", "combinational_logic_logic_gates_nand_gate_simplification_truth_tables.png", "combinations_of_resistors_kirchoff's_laws_v=ir$.png", "combinations_of_resistors_kirchoff's_laws_v=ir.png", "combinations_of_resistors_power_relationships_thevenin's_theorem_v=ir_voltage_divider$.png", "combinations_of_resistors_power_relationships_thevenin's_theorem_v=ir_voltage_divider.png", "combinations_of_resistors_v=ir$.png", "combinations_of_resistors_v=ir.png", "comparator_circuits_complex_systems_design_systems_mosfet_circuits_power_power_relationships_semiconductor_equation_thermistors_voltage_divider$.png", "comparator_circuits_complex_systems_design_systems_mosfet_circuits_power_power_relationships_semiconductor_equation_thermistors_voltage_divider.png", "comparator_circuits_complex_systems_design_systems_npn_transistor_op-amps_outputs_photosensitive_devices_sensing_circuits$.png", "comparator_circuits_complex_systems_design_systems_npn_transistor_op-amps_outputs_photosensitive_devices_sensing_circuits.png", "comparator_circuits_op-amps_sensing_circuits_thermistors_voltage_divider$.png", "comparator_circuits_op-amps_sensing_circuits_thermistors_voltage_divider.png", "comparing_interfaces_transistor_interfaces$.png", "comparing_interfaces_transistor_interfaces.png", "complex_systems_design_systems_e24_series_logic_gates_npn_transistor_circuits_outputs_pull-down_resistors_pull-up_sensing_circuits_silicon_diodes$.png", "complex_systems_design_systems_e24_series_logic_gates_npn_transistor_circuits_outputs_pull-down_resistors_pull-up_sensing_circuits_silicon_diodes.png", "counters_d-type_flip-flops$.png", "counters_d-type_flip-flops.png", "counters_logic_gates_sensing_circuits$.png", "counters_logic_gates_sensing_circuits.png", "counters_number_systems$.png", "counters_number_systems.png", "counters_sensing_circuits$.png", "counters_sensing_circuits.png", "counters_set-reset_latch_timing_diagram$.png", "counters_set-reset_latch_timing_diagram.png", "current_limiting_resistor_calculations_e24_series_r.m.s._silicon_diodes_v=ir$.png", "current_limiting_resistor_calculations_e24_series_r.m.s._silicon_diodes_v=ir.png", "current_rules_voltage_rules$.png", "current_rules_voltage_rules.png", "current_rules_voltage_rulesddd$.png", "current_rules_voltage_rulesddd.png", "d-type_counters_d-type_flip-flop$.png", "d-type_counters_d-type_flip-flop.png", "d-type_counters_d-type_flip-flopddd$.png", "d-type_counters_d-type_flip-flopddd.png", "d-type_flip-flops_logic_gates_set-reset_latch_timing_diagram_transition_gates_truth_tables$.png", "d-type_flip-flops_logic_gates_set-reset_latch_timing_diagram_transition_gates_truth_tables.png", "d-type_flip-flops_sensing_circuits_timing_diagram$.png", "d-type_flip-flops_sensing_circuits_timing_diagram.png", "d-type_flip-flops_timing_diagram$.png", "d-type_flip-flops_timing_diagram.png", "d-type_flip-flops_timing_diagrambbb$.png", "d-type_flip-flops_timing_diagrambbb.png", "d-type_flip-flop_d-type_latches$.png", "d-type_flip-flop_d-type_latches.png", "d-type_flip-flop_d-type_latchesddd$.png", "d-type_flip-flop_d-type_latchesddd.png", "dac_circuits$.png", "dac_circuits.png", "dac_circuits_inverting_amp_npn_transistor_circuits$.png", "dac_circuits_inverting_amp_npn_transistor_circuits.png", "dac_circuits_mixer_circuits_op_amp_equations_summing_amp$.png", "dac_circuits_mixer_circuits_op_amp_equations_summing_amp.png", "decade_counters$.png", "decade_counters.png", "design_systems_logic_gates_sensing_circuits$.png", "design_systems_logic_gates_sensing_circuits.png", "design_systems_mains_power_supplies_rectification_ripple_voltage_voltage_regulator_circuits_zener_diode_power_supplies_zener_diodes$.png", "design_systems_mains_power_supplies_rectification_ripple_voltage_voltage_regulator_circuits_zener_diode_power_supplies_zener_diodes.png", "distortion_op_amp_graphs_op_amp_voltage_amplifiers$.png", "distortion_op_amp_graphs_op_amp_voltage_amplifiers.png", "draw_and_analyses_systems_using_counters_and_logic_gates_logic_gates_truth_tables$.png", "draw_and_analyses_systems_using_counters_and_logic_gates_logic_gates_truth_tables.png", "draw_and_analyses_systems_using_counters_and_logic_gates_nand_gates_truth_tables$.png", "draw_and_analyses_systems_using_counters_and_logic_gates_nand_gates_truth_tables.png", "e24_series_led_photosensitive_devices_sensing_circuits_v=ir_voltage_divider$.png", "e24_series_led_photosensitive_devices_sensing_circuits_v=ir_voltage_divider.png", "e24_series_power_relationships_v=ir_voltage_divider_zener_diode$.png", "e24_series_power_relationships_v=ir_voltage_divider_zener_diode.png", "encoded_discs$.png", "encoded_discs.png", "encoded_discsddd$.png", "encoded_discsddd.png", "flowcharts$.png", "flowcharts.png", "flowcharts_pic_microcontroller$.png", "flowcharts_pic_microcontroller.png", "ic_pin_connections$.png", "ic_pin_connections.png", "ic_pin_connectionsddd$.png", "ic_pin_connectionsddd.png", "input_output_processing_subsystems_system_design_transducer_drivers$.png", "input_output_processing_subsystems_system_design_transducer_drivers.png", "input_output_processing_subsystems_system_design_transducer_driversddd$.png", "input_output_processing_subsystems_system_design_transducer_driversddd.png", "input_subsystems_logic_gates_switch_switches_system_design$.png", "input_subsystems_logic_gates_switch_switches_system_design.png", "interface_circuits$.png", "interface_circuits.png", "inverting_amp_op_amp_equations$.png", "inverting_amp_op_amp_equations.png", "karnaugh_maps_logic_gates_multiplexers.png", "kirchoff's_laws_v=ir$.png", "kirchoff's_laws_v=ir.png", "kirchoff's_laws_v=iraaa$.png", "kirchoff's_laws_v=iraaa.png", "led_sensing_circuits_set-reset_latch_truth_tables$.png", "led_sensing_circuits_set-reset_latch_truth_tables.png", "loading_power_supplies_mains_power_supplies_rectification_ripple_voltage_silicon_diodes$.png", "loading_power_supplies_mains_power_supplies_rectification_ripple_voltage_silicon_diodes.png", "logic_gates$.png", "logic_gates.png", "logic_gatesbbb$.png", "logic_gatesbbb.png", "logic_gatesddd$.png", "logic_gatesddd.png", "logic_gates_logic_system_design$.png", "logic_gates_logic_system_design.png", "logic_gates_logic_system_design_truth_tables$.png", "logic_gates_logic_system_design_truth_tables.png", "logic_gates_logic_system_design_truth_tablesddd$.png", "logic_gates_logic_system_design_truth_tablesddd.png", "logic_gates_multiplexers_truth_tables$.png", "logic_gates_multiplexers_truth_tables.png", "logic_gates_nand_gates$.png", "logic_gates_nand_gates.png", "logic_gates_nand_gates2$.png", "logic_gates_nand_gates2.png", "logic_gates_nand_gatesddd$.png", "logic_gates_nand_gatesddd.png", "logic_gates_nand_gate_simplification_truth_tables$.png", "logic_gates_nand_gate_simplification_truth_tables.png", "logic_gates_nand_gate_simplification_truth_tablesbbb$.png", "logic_gates_nand_gate_simplification_truth_tablesbbb.png", "logic_gates_sensing_circuits_set-reset_latch_timing_diagram$.png", "logic_gates_sensing_circuits_set-reset_latch_timing_diagram.png", "logic_gates_set-reset_latch_transition_gates_truth_tables$.png", "logic_gates_set-reset_latch_transition_gates_truth_tables.png", "logic_gates_transition_gates$.png", "logic_gates_transition_gates.png", "logic_gates_truth_tables$.png", "logic_gates_truth_tables.png", "logic_gates_truth_tablesaaa$.png", "logic_gates_truth_tablesaaa.png", "mains_power_supplies_power_supply_regulation_voltage_regulator_circuits_zener_diode_power_supplies$.png", "mains_power_supplies_power_supply_regulation_voltage_regulator_circuits_zener_diode_power_supplies.png", "mains_power_supplies_rectification_ripple_voltage$.png", "mains_power_supplies_rectification_ripple_voltage.png", "mains_power_supply_rectification_ripple_voltage$.png", "mains_power_supply_rectification_ripple_voltage.png", "mains_power_supply_rectification_ripple_voltageaaa$.png", "mains_power_supply_rectification_ripple_voltageaaa.png", "mains_power_supply_rectification_ripple_voltagebbb$.png", "mains_power_supply_rectification_ripple_voltagebbb.png", "mixer_circuits_summing_amp$.png", "mixer_circuits_summing_amp.png", "modulation_techniques$.png", "modulation_techniques.png", "modulation_techniques_pcm_systems$.png", "modulation_techniques_pcm_systems.png", "modulation_techniques_schmitt_trigger$.png", "modulation_techniques_schmitt_trigger.png", "mosfet_circuits_npn_transistor_circuits_power_relationships_semiconductor_equation_v=ir$.png", "mosfet_circuits_npn_transistor_circuits_power_relationships_semiconductor_equation_v=ir.png", "mosfet_circuits_power_power_relationships_semiconductor_equation_silicon_diodes_thermistors_voltage_divider$.png", "mosfet_circuits_power_power_relationships_semiconductor_equation_silicon_diodes_thermistors_voltage_divider.png", "mosfet_circuits_power_relationships_semiconductor_equation$.png", "mosfet_circuits_power_relationships_semiconductor_equation.png", "mosfet_npn_transistor_sensing_circuits_thermistors_transistor_equation$.png", "mosfet_npn_transistor_sensing_circuits_thermistors_transistor_equation.png", "mosfet_outputs_power_relationships_transconductance$.png", "mosfet_outputs_power_relationships_transconductance.png", "mosfet_schmitt_inverter_sensing_circuits_thermistors_transconductance$.png", "mosfet_schmitt_inverter_sensing_circuits_thermistors_transconductance.png", "multi-stage_amplifiers_op_amp_equations_op_amps$.png", "multi-stage_amplifiers_op_amp_equations_op_amps.png", "nand_gates$.png", "nand_gates.png", "nand_gatesddd$.png", "nand_gatesddd.png", "non-inverting_amp_op_amp_equations_op_amps$.png", "non-inverting_amp_op_amp_equations_op_amps.png", "non-inverting_amp_voltage_gain$.png", "non-inverting_amp_voltage_gain.png", "npn_transistor_photosensitive_devices_power_relationships_sensing_circuits_transistor_equation_v=ir$.png", "npn_transistor_photosensitive_devices_power_relationships_sensing_circuits_transistor_equation_v=ir.png", "npn_transistor_power_relationships_transistor_equation$.png", "npn_transistor_power_relationships_transistor_equation.png", "parallel_resistors_series_resistors$.png", "parallel_resistors_series_resistors.png", "parallel_resistors_series_resistorsddd$.png", "parallel_resistors_series_resistorsddd.png", "passive_filter_circuits_passive_filter_equations_passive_filter_graphs_r.m.s$.png", "passive_filter_circuits_passive_filter_equations_passive_filter_graphs_r.m.s£.png", "passive_filter_circuits_passive_filter_equations_passive_filter_graphs_reactance_impedance$.png", "passive_filter_circuits_passive_filter_equations_passive_filter_graphs_reactance_impedance.png", "passive_filter_circuits_passive_filter_equations_passive_filter_graphs_voltage_divider$.png", "passive_filter_circuits_passive_filter_equations_passive_filter_graphs_voltage_divider.png", "passive_filter_circuits_passive_filter_equations_reactance_impedance$.png", "passive_filter_circuits_passive_filter_equations_reactance_impedance.png", "passive_filter_circuits_passive_filter_graphs_reactance_impedance$.png", "passive_filter_circuits_passive_filter_graphs_reactance_impedance.png", "passive_filter_circuits_passive_filter_graphs_reactance_impedance2$.png", "passive_filter_circuits_passive_filter_graphs_reactance_impedance2.png", "phase_angle_thyristor_circuits_and_graphs_thyristors$.png", "phase_angle_thyristor_circuits_and_graphs_thyristors.png", "phase_angle_thyristor_circuits_and_graphs_thyristors_thyristors_characteristics$.png", "phase_angle_thyristor_circuits_and_graphs_thyristors_thyristors_characteristics.png", "photosensitive_devices_schmitt_inverter_schmitt_trigger_oscillation_sensing_circuits$.png", "photosensitive_devices_schmitt_inverter_schmitt_trigger_oscillation_sensing_circuits.png", "pic_microcontroller$.png", "pic_microcontroller.png", "pic_microcontroller2$.png", "pic_microcontroller2.png", "pic_microcontroller4$.png", "pic_microcontroller4.png", "power_relationships_v=ir_voltage_divider_zener_diode$.png", "power_relationships_v=ir_voltage_divider_zener_diode.png", "resistor_codes_e24$.png", "resistor_codes_e24.png", "resistor_codes_e24ddd$.png", "resistor_codes_e24ddd.png", "schmitt_inverter_schmitt_trigger_schmitt_trigger_oscillation_signal_regeneration$.png", "schmitt_inverter_schmitt_trigger_schmitt_trigger_oscillation_signal_regeneration.png", "schmitt_inverter_sensing_circuits$.png", "schmitt_inverter_sensing_circuits.png", "schmitt_invertor$.png", "schmitt_invertor.png", "schmitt_invertorddd$.png", "schmitt_invertorddd.png", "schmitt_trigger$.png", "schmitt_trigger.png", "schmitt_triggerddd$.png", "schmitt_triggerddd.png", "schmitt_trigger_signal_regeneration$.png", "schmitt_trigger_signal_regeneration.png", "schmitt_trigger_signal_regeneration2$.png", "schmitt_trigger_signal_regeneration2.png", "schmitt_trigger_signal_regeneration3$.png", "schmitt_trigger_signal_regeneration3.png", "schmitt_trigger_signal_regeneration55$.png", "schmitt_trigger_signal_regeneration55.png", "schmitt_trigger_signal_regeneration66$.png", "schmitt_trigger_signal_regeneration66.png", "schmitt_trigger_signal_regenerationddd$.png", "schmitt_trigger_signal_regenerationddd.png", "silicon_diodes_v=ir_voltage_regulator_circuits_zener_diode_power_supplies$.png", "silicon_diodes_v=ir_voltage_regulator_circuits_zener_diode_power_supplies.png", "switches_voltage_dividers$.png", "switches_voltage_dividers.png", "thevenin's_theorem_v=ir_voltage_divider$.png", "thevenin's_theorem_v=ir_voltage_divider.png", "thevenin's_theorem_v=ir_voltage_dividerbbb$.png", "thevenin's_theorem_v=ir_voltage_dividerbbb.png", "theverin's_theorem_v=ir_voltage_divider$.png", "theverin's_theorem_v=ir_voltage_divider.png", "thyristor_circuits_and_graphs_thyristors_thyristors_characteristics$.png", "thyristor_circuits_and_graphs_thyristors_thyristors_characteristics.png", "thyristor_circuits_and_graphs_thyristors_thyristors_characteristics2$.png", "thyristor_circuits_and_graphs_thyristors_thyristors_characteristics2.png", "thyristor_circuits_thyristor_graphs_thyristors_characteristics$.png", "thyristor_circuits_thyristor_graphs_thyristors_characteristics.png", "thyristor_circuits_thyristor_graphs_thyristors_characteristicsddd$.png", "thyristor_circuits_thyristor_graphs_thyristors_characteristicsddd.png", "transistor_equations_transistor_interfaces$.png", "transistor_equations_transistor_interfaces.png", "v=ir_voltage_divider_zener_diode$.png", "v=ir_voltage_divider_zener_diode.png"];
+            
+            function getRandomImage(topic) {
+                const topicKeywords = {
+                    random: ["555 astable", "555 monostable", "555 timer equations", "7-segment display", "active filters", "adc circuits", "adc resolution", "am/fm waveforms", "amplifier systems", "analysing adc's", "analysing microcontroller circuits", "astable", "astable equations", "audio system graphs", "audio systems", "bandwidth", "binary and bcd counters", "boolean algebra", "boolean identities", "bridge circuits", "capacitance", "capacitor charge/discharge", "capacitors in series and parallel", "charging/discharging capacitor equations", "circuit equations", "circuit symbols", "clipping and slew rate distortion", "combinational logic", "combinations of resistors", "comparator circuits", "comparators", "comparing interfaces", "complex systems", "counters", "counting systems", "crossover distortion", "current limiting resistor calculations", "current rules", "d-type counters", "d-type data transfer", "d-type flip-flop", "d-type flip-flops", "d-type latches", "dac circuits", "decade counters", "demorgan's theorem", "design logic systems", "design systems", "difference amplifiers", "digitising signals", "distortion", "draw and analyses 555 ic circuit diagrams", "draw and analyses systems using counters and logic gates", "e24 series", "encoded discs", "flowcharts", "ic pin connections", "input", "input subsystems", "interface circuits", "inverting amp", "karnaugh maps", "kirchoff's laws", "latches", "ldr", "led", "led's", "loading power supplies", "logic gates", "logic system design", "mains power supplies", "mains power supply", "max power transfer", "microcontroller circuits", "mixer circuits", "modulation techniques", "monostable", "monostable/astable graphs", "mosfet", "mosfet circuits", "mosfet equations", "multi-stage amplifiers", "multiplexers", "nand gate", "nand gate simplification", "nand gates", "non-inverting amp", "npn transistor", "npn transistor circuits", "number systems", "op amp equations", "op amp frequency response", "op amp graphs", "op amp voltage amplifier circuits", "op amp voltage amplifiers", "op amp voltage gain equations", "op amps", "op-amps", "oscilloscope readings", "output", "outputs", "parallel resistors", "passive filter circuits", "passive filter equations", "passive filter graphs", "pcm systems", "phase angle", "photosensitive devices", "pic microcontroller", "piso and sipo", "power", "power amplifiers", "power relationships", "power supply regulation", "processing subsystems", "pull-down resistors", "pull-up", "pulse generator", "push-pull amplifiers", "r.m.s", "r.m.s.", "radio spectrum", "rc networks", "reactance/impedance", "rectification", "resistor codes e24", "ripple voltage", "sampling frequency", "schmitt inverter", "schmitt invertor", "schmitt trigger", "schmitt trigger oscillation", "semiconductor equation", "sensing circuits", "sequence generators", "series resistors", "set-reset latch", "signal regeneration", "silicon diodes", "simplification", "summing amp", "switch", "switches", "system design", "thermistors", "thevenin's theorem", "theverin's theorem", "thyristor", "thyristor circuits", "thyristor circuits and graphs", "thyristor graphs", "thyristors", "thyristors characteristics", "timing diagram", "transconductance", "transducer drivers", "transistor equation", "transistor equations", "transistor interfaces", "transition gates", "truth tables", "use data to design switching circuits", "v=ir", "voltage divider", "voltage dividers", "voltage gain", "voltage regulator circuits", "voltage rules", "wireless equations", "zener diode", "zener diode power supplies", "zener diodes"],
+                    topic_1: ["555_astable"],
+                    topic_2: ["555_monostable"],
+                    topic_3: ["555_timer_equations"],
+                    topic_4: ["7-segment_display"],
+                    topic_5: ["active_filters"],
+                    topic_6: ["adc_circuits"],
+                    topic_7: ["adc_resolution"],
+                    topic_8: ["am_fm_waveforms"],
+                    topic_9: ["amplifier_systems"],
+                    topic_10: ["analysing_adc's"],
+                    topic_11: ["analysing_microcontroller_circuits"],
+                    topic_12: ["astable"],
+                    topic_13: ["astable_equations"],
+                    topic_14: ["audio_system_graphs"],
+                    topic_15: ["audio_systems"],
+                    topic_16: ["bandwidth"],
+                    topic_17: ["binary_and_bcd_counters"],
+                    topic_18: ["boolean_algebra"],
+                    topic_19: ["boolean_identities"],
+                    topic_20: ["bridge_circuits"],
+                    topic_21: ["capacitance"],
+                    topic_22: ["capacitor_charge_discharge"],
+                    topic_23: ["capacitors_in_series_and_parallel"],
+                    topic_24: ["charging_discharging_capacitor_equations"],
+                    topic_25: ["circuit_equations"],
+                    topic_26: ["circuit_symbols"],
+                    topic_27: ["clipping_and_slew_rate_distortion"],
+                    topic_28: ["combinational_logic"],
+                    topic_29: ["combinations_of_resistors"],
+                    topic_30: ["comparator_circuits"],
+                    topic_31: ["comparators"],
+                    topic_32: ["comparing_interfaces"],
+                    topic_33: ["complex_systems"],
+                    topic_34: ["counters"],
+                    topic_35: ["counting_systems"],
+                    topic_36: ["crossover_distortion"],
+                    topic_37: ["current_limiting_resistor_calculations"],
+                    topic_38: ["current_rules"],
+                    topic_39: ["d-type_counters"],
+                    topic_40: ["d-type_data_transfer"],
+                    topic_41: ["d-type_flip-flop"],
+                    topic_42: ["d-type_flip-flops"],
+                    topic_43: ["d-type_latches"],
+                    topic_44: ["dac_circuits"],
+                    topic_45: ["decade_counters"],
+                    topic_46: ["demorgan's_theorem"],
+                    topic_47: ["design_logic_systems"],
+                    topic_48: ["design_systems"],
+                    topic_49: ["difference_amplifiers"],
+                    topic_50: ["digitising_signals"],
+                    topic_51: ["distortion"],
+                    topic_52: ["draw_and_analyses_555_ic_circuit_diagrams"],
+                    topic_53: ["draw_and_analyses_systems_using_counters_and_logic_gates"],
+                    topic_54: ["e24_series"],
+                    topic_55: ["encoded_discs"],
+                    topic_56: ["flowcharts"],
+                    topic_57: ["ic_pin_connections"],
+                    topic_58: ["input"],
+                    topic_59: ["input_subsystems"],
+                    topic_60: ["interface_circuits"],
+                    topic_61: ["inverting_amp"],
+                    topic_62: ["karnaugh_maps"],
+                    topic_63: ["kirchoff's_laws"],
+                    topic_64: ["latches"],
+                    topic_65: ["ldr"],
+                    topic_66: ["led"],
+                    topic_67: ["led's"],
+                    topic_68: ["loading_power_supplies"],
+                    topic_69: ["logic_gates"],
+                    topic_70: ["logic_system_design"],
+                    topic_71: ["mains_power_supplies"],
+                    topic_72: ["mains_power_supply"],
+                    topic_73: ["max_power_transfer"],
+                    topic_74: ["microcontroller_circuits"],
+                    topic_75: ["mixer_circuits"],
+                    topic_76: ["modulation_techniques"],
+                    topic_77: ["monostable"],
+                    topic_78: ["monostable_astable_graphs"],
+                    topic_79: ["mosfet"],
+                    topic_80: ["mosfet_circuits"],
+                    topic_81: ["mosfet_equations"],
+                    topic_82: ["multi-stage_amplifiers"],
+                    topic_83: ["multiplexers"],
+                    topic_84: ["nand_gate"],
+                    topic_85: ["nand_gate_simplification"],
+                    topic_86: ["nand_gates"],
+                    topic_87: ["non-inverting_amp"],
+                    topic_88: ["npn_transistor"],
+                    topic_89: ["npn_transistor_circuits"],
+                    topic_90: ["number_systems"],
+                    topic_91: ["op_amp_equations"],
+                    topic_92: ["op_amp_frequency_response"],
+                    topic_93: ["op_amp_graphs"],
+                    topic_94: ["op_amp_voltage_amplifier_circuits"],
+                    topic_95: ["op_amp_voltage_amplifiers"],
+                    topic_96: ["op_amp_voltage_gain_equations"],
+                    topic_97: ["op_amps"],
+                    topic_98: ["op-amps"],
+                    topic_99: ["oscilloscope_readings"],
+                    topic_100: ["output"],
+                    topic_101: ["outputs"],
+                    topic_102: ["parallel_resistors"],
+                    topic_103: ["passive_filter_circuits"],
+                    topic_104: ["passive_filter_equations"],
+                    topic_105: ["passive_filter_graphs"],
+                    topic_106: ["pcm_systems"],
+                    topic_107: ["phase_angle"],
+                    topic_108: ["photosensitive_devices"],
+                    topic_109: ["pic_microcontroller"],
+                    topic_110: ["piso_and_sipo"],
+                    topic_111: ["power"],
+                    topic_112: ["power_amplifiers"],
+                    topic_113: ["power_relationships"],
+                    topic_114: ["power_supply_regulation"],
+                    topic_115: ["processing_subsystems"],
+                    topic_116: ["pull-down_resistors"],
+                    topic_117: ["pull-up"],
+                    topic_118: ["pulse_generator"],
+                    topic_119: ["push-pull_amplifiers"],
+                    topic_120: ["r.m.s"],
+                    topic_121: ["r.m.s."],
+                    topic_122: ["radio_spectrum"],
+                    topic_123: ["rc_networks"],
+                    topic_124: ["reactance_impedance"],
+                    topic_125: ["rectification"],
+                    topic_126: ["resistor_codes_e24"],
+                    topic_127: ["ripple_voltage"],
+                    topic_128: ["sampling_frequency"],
+                    topic_129: ["schmitt_inverter"],
+                    topic_130: ["schmitt_invertor"],
+                    topic_131: ["schmitt_trigger"],
+                    topic_132: ["schmitt_trigger_oscillation"],
+                    topic_133: ["semiconductor_equation"],
+                    topic_134: ["sensing_circuits"],
+                    topic_135: ["sequence_generators"],
+                    topic_136: ["series_resistors"],
+                    topic_137: ["set-reset_latch"],
+                    topic_138: ["signal_regeneration"],
+                    topic_139: ["silicon_diodes"],
+                    topic_140: ["simplification"],
+                    topic_141: ["summing_amp"],
+                    topic_142: ["switch"],
+                    topic_143: ["switches"],
+                    topic_144: ["system_design"],
+                    topic_145: ["thermistors"],
+                    topic_146: ["thevenin's_theorem"],
+                    topic_147: ["theverin's_theorem"],
+                    topic_148: ["thyristor"],
+                    topic_149: ["thyristor_circuits"],
+                    topic_150: ["thyristor_circuits_and_graphs"],
+                    topic_151: ["thyristor_graphs"],
+                    topic_152: ["thyristors"],
+                    topic_153: ["thyristors_characteristics"],
+                    topic_154: ["timing_diagram"],
+                    topic_155: ["transconductance"],
+                    topic_156: ["transducer_drivers"],
+                    topic_157: ["transistor_equation"],
+                    topic_158: ["transistor_equations"],
+                    topic_159: ["transistor_interfaces"],
+                    topic_160: ["transition_gates"],
+                    topic_161: ["truth_tables"],
+                    topic_162: ["use_data_to_design_switching_circuits"],
+                    topic_163: ["v=ir"],
+                    topic_164: ["voltage_divider"],
+                    topic_165: ["voltage_dividers"],
+                    topic_166: ["voltage_gain"],
+                    topic_167: ["voltage_regulator_circuits"],
+                    topic_168: ["voltage_rules"],
+                    topic_169: ["wireless_equations"],
+                    topic_170: ["zener_diode"],
+                    topic_171: ["zener_diode_power_supplies"],
+                    topic_172: ["zener_diodes"]
+                };
+                const keywordList = topicKeywords[topic];
+                const filteredFiles = imageFiles.filter(file => {
+                    const fileExtension = file.slice(file.lastIndexOf("."));
+                    const fileName = file.slice(0, file.lastIndexOf("."));
+                    return (fileExtension === ".png" && !fileName.includes('$') && // Exclude file names with $
+                        keywordList.some(keyword => fileName.includes(keyword)));
+                });
+                if (filteredFiles.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * filteredFiles.length);
+                    const randomImage = filteredFiles[randomIndex];
+                    console.log(`Chosen file: ${randomImage}`); // Log the chosen file name
+                    return randomImage;
+                } else {
+                    return null;
+                }
+            }
+            
+            function resetAnswerButton() {
+                showAnswer = true;
+                answerButton.textContent = "Show Answer";
+                answerButton.style.backgroundColor = "#4CAF50";
+            }
+            
+            function displayRandomImage() {
+                const selectedTopic = topics.value;
+                currentImage = getRandomImage(selectedTopic);
+                const imageElement = document.createElement("img");
+                imageElement.setAttribute("src", currentImage);
+                imageElement.setAttribute("alt", "Random image for " + selectedTopic);
+                imageContainer.innerHTML = "";
+                imageContainer.appendChild(imageElement);
+            }
+            button.addEventListener("click", () => {
+                displayRandomImage();
+                resetAnswerButton();
+            });
+            answerButton.addEventListener("click", () => {
+                if (currentImage) {
+                    let imageSuffix = showAnswer ? "$." : ".";
+                    const newImage = currentImage.replace(showAnswer ? "." : "$.", imageSuffix);
+                    const imageElement = document.createElement("img");
+                    imageElement.setAttribute("src", newImage);
+                    imageElement.setAttribute("alt", (showAnswer ? "Answer" : "Question") + " for " + currentImage);
+                    imageContainer.innerHTML = "";
+                    imageContainer.appendChild(imageElement);
+                    showAnswer = !showAnswer;
+                    answerButton.textContent = showAnswer ? "Show Answer" : "Show Question";
+                    answerButton.style.backgroundColor = showAnswer ? "#4CAF50" : "#4CAF50"; // I'll choose a different colour at a later date
+                }
+            });
+        </script>
+    </body>
+</html>
